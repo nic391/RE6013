@@ -9,7 +9,7 @@ def index():
 @app.route("/prediction",methods=["GET","POST"])
 def prediction():
     q = float(request.form.get("q"))
-    model = joblib.load('dbs.jl')
+    model = joblib.load('dbs.pkl')
     pred = model.predict([[q]])
     r = pred[0][0]
     return(render_template("prediction.html", r=r))
